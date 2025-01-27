@@ -58,13 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 const cartItem = document.createElement("div")
                 cartItem.innerHTML = `${item.name} - $${item.price}`
                 cartItem.classList.add("product")
-                //const deleteBtn = document.createElement("button")
-                //deleteBtn.innerText = "Delete"
-                //cartItem.appendChild(deleteBtn)
+                const deleteBtn = document.createElement("button")
+                deleteBtn.innerText = "Delete"
+                cartItem.appendChild(deleteBtn)
                 cartItems.appendChild(cartItem)
                 
                 //! delete
-                //deleteBtn.addEventListener("click", () => deleteProduct(item))
+                deleteBtn.addEventListener("click", () => deleteProduct(item))
                 
 
 
@@ -90,14 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     //. Delete Product 
-    // function deleteProduct(product) {
-    //     const index = cart.findIndex(item => item.id == product.id)
-    //     if(index != -1) {
-    //         cart.splice(index, 1)
-    //         renderCart()
-    //         saveProducts()
-    //     }
-    // }
+    function deleteProduct(product) {
+        const index = cart.findIndex(item => item.id == product.id)
+        if(index != -1) {
+            cart.splice(index, 1)
+            renderCart()
+            saveProducts()
+        }
+    }
     
 
     //.local storage 
