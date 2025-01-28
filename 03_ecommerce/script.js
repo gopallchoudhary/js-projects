@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {id: 3, name: "Product3", price: 30.89},
     ]
 
-    const cart = JSON.parse(localStorage.getItem("products")) || []
+    let cart = JSON.parse(localStorage.getItem("products")) || []
 
     
 
@@ -56,7 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 
 
                 const cartItem = document.createElement("div")
-                cartItem.innerHTML = `${item.name} - $${item.price}`
+                cartItem.innerHTML = `<span>${item.name} - $${item.price}</span>`
+                // <button data-id="${item.id}">Delete</button>
                 cartItem.classList.add("product")
                 const deleteBtn = document.createElement("button")
                 deleteBtn.innerText = "Delete"
@@ -98,6 +99,18 @@ document.addEventListener("DOMContentLoaded", () => {
             saveProducts()
         }
     }
+
+    // cartItems.addEventListener("click", (e) => {
+    //     if(e.target.tagName == 'BUTTON') {
+    //         const productId = parseInt(e.target.getAttribute("data-id"))
+    //         cart = cart.filter(product => product.id != productId)
+    //         renderCart()
+    //         saveProducts()
+    //         console.log(cart)
+            
+    //     }
+        
+    // })
     
 
     //.local storage 
